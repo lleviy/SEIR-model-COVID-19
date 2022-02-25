@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "description": "SIR model COVID-19",
+    "title": "SIR model COVID-19",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/model": {
+      "post": {
+        "summary": "¬озвращает модельные и реальные данные по заболеваемости COVID-19",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Default response."
+          }
+        },
+        "parameters": [
+          {
+            "name": "region",
+            "description": "субъект –‘",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_date",
+            "description": "начальна€ дата периода, на котором должна быть обучена модель",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_date",
+            "description": "конечна€ дата периода, на котором должна быть обучена модель",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "predict_up_to_date",
+            "description": "дата, до которой строить прогноз",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
